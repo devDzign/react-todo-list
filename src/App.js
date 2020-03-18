@@ -9,16 +9,7 @@ import TodoInput from "./components/Input/TodoInput";
 class App extends Component {
 
     state = {
-        items: [
-            {
-                id: uuid(),
-                title: "make sport"
-            },
-            {
-                id: uuid(),
-                title: "make sport"
-            }
-        ],
+        items: [],
         item: "",
         editItem: false,
         id: uuid()
@@ -44,9 +35,6 @@ class App extends Component {
             item: '',
             id: uuid(),
         });
-
-        console.log('items states : ', this.state)
-
 
     }
 

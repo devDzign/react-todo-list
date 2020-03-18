@@ -4,8 +4,7 @@ class TodoInput extends Component {
     render() {
         const {item, changeHandler, submitHandler, editItem} = this.props
         return (
-            <div>
-                <div className="card card-body my-3">
+                <div className="card card-body my-3 shadow-lg bg-white rounded">
                     <form onSubmit={submitHandler}>
                         <div className="input-group">
                             <div className="input-group-append">
@@ -27,7 +26,7 @@ class TodoInput extends Component {
                         </button>
                     </form>
                 </div>
-            </div>
+
         );
     }
 }
