@@ -26,7 +26,7 @@ class App extends Component {
 
     changeHandler = (e) => {
         this.setState({
-           item: e.target.value
+            item: e.target.value
         })
     }
 
@@ -51,7 +51,11 @@ class App extends Component {
     }
 
     clearListHandler = () => {
-        console.log('clear list handler')
+        const clearListItems = [];
+
+        this.setState({
+            items: clearListItems
+        })
     }
 
     editHandler = (id) => {
@@ -59,7 +63,16 @@ class App extends Component {
     }
 
     removeHandler = (id) => {
-        console.log('handler remove');
+        console.log('handler remove', id);
+        const newListItem = this.state.items.filter(item => {
+            return id !== item.id
+        })
+
+        this.setState(
+            {
+                items: newListItem
+            }
+        )
     }
 
     render() {
