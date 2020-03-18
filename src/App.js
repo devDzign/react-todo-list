@@ -38,6 +38,7 @@ class App extends Component {
             items: updateItems,
             item: '',
             id: uuid(),
+            editItem: false
         });
 
     }
