@@ -23,6 +23,10 @@ class App extends Component {
 
     submitHandler = (e) => {
         e.preventDefault();
+
+        if(this.state.item.length <=0){
+            return;
+        }
         const newItem = {
             id: this.state.id,
             title: this.state.item
@@ -47,7 +51,19 @@ class App extends Component {
     }
 
     editHandler = (id) => {
-        console.log('handler edit');
+        const filtredItems = this.state.items.filter( item => {
+            return id !== item.id
+        })
+        const updateItem = this.state.items.find( item => {
+            return id === item.id
+        })
+
+        this.setState({
+            item: updateItem.title,
+            editItem: true,
+            id: id,
+            items: filtredItems
+        })
     }
 
     removeHandler = (id) => {
@@ -80,7 +96,7 @@ class App extends Component {
                                 items={this.state.items}
                                 onClearList={this.clearListHandler}
                                 onDelete={this.removeHandler}
-                                onEdiItem={this.state.editItem}
+                                onEdiItem={this.editHandler}
                             />
                         </div>
                     </div>
